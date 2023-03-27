@@ -1,2 +1,17 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="movie-detail">
+  <div class="movie-info-with-image">
+    <% if @movie['poster_path'] %>
+      <%= image_tag 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'], class: "card-size" %>
+    <% end %>
+    <div class="movie-info">
+      <div class="movie-header">
+        <h2><%= @movie['title'] %></h2>
+        <p><%= @movie['runtime'] %> 分</p>
+        <p><%= @movie['release_date'] %> 公開</p>
+      </div>
+      <div class="movie-overview">
+        <p><%= @movie['overview'] %></p>
+      </div>
+    </div>
+  </div>
+</div>
