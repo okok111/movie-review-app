@@ -1,3 +1,128 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+// movies/index.html.erb
+.movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #141414;
+    padding: 20px;
+}
+
+.movie-data {
+    width: 23%;
+    margin-bottom: 30px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    .movie-title{
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .card-img {
+        display: block;
+        border-radius: 5px;
+        width: 100%;
+        height: auto;
+    }
+    p {
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.movie-data:hover {
+    transform: scale(1.05);
+}
+.pagination-container{
+    color: #fff;
+}
+
+// movies/show.html.erb
+
+/* 基本設定 */
+.movie-detail {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-size {
+    //   width: 200px;
+    //   height: 300px;
+    object-fit: cover;
+}
+
+.movie-info-with-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #222;
+    width: 100%;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: #fff;
+}
+
+.movie-header {
+    margin-bottom: 20px;
+    h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+}
+
+.movie-detail a.postbtn {
+    display: block;
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 60%;
+    margin: 20px auto;
+    text-decoration: none;
+    border-radius: 5px;
+    
+  }
+  
+  .movie-detail a.postbtn:hover {
+    background-color: #3e8e41;
+  }
+/* スマホサイズ */
+@media screen and (max-width: 767px) {
+    .movies-container {
+        justify-content: space-around;
+    }
+
+    .movie-data {
+        width: 47%;
+    }
+
+    .movie-info-with-image {
+        flex-direction: column;
+    }
+
+    .card-size {
+        width: 100%;
+        height: auto;
+    }
+
+    .movie-info {
+        width: 100%;
+        padding: 10px;
+    }
+}

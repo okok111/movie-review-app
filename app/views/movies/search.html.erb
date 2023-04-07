@@ -1,6 +1,5 @@
 <%= paginate @movies %>
 <div class="search">
-※最大100件まで取得
     <%= form_tag(root_path, method: :get) do %>
         <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title...' , :size => "40*40" %>
         <%= submit_tag 'search' %>

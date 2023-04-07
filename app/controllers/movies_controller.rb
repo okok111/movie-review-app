@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :authenticate_user! , except: [:show, :search]
+  before_action :authenticate_user! , except: [:show, :search ,:recommend]
   def search
     if params[:looking_for]
       movie_title = params[:looking_for]
@@ -43,5 +43,18 @@ class MoviesController < ApplicationController
     else
       @movie = nil
     end
+  end
+
+  def recommend
+    @question = params[:query]
+
+    client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
+    response = client.chat(
+      parameters: {
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: "次の単語に該当する映画を５つ紹介してください。#{@question}" }],
+      })
+
+    @answer = response.dig("choices", 0, "message", "content")
   end
 end
