@@ -55,3 +55,4 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'kaminari'
 gem "ruby-openai"
+gem "pg", "~> 1.4"

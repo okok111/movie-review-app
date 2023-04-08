@@ -5,7 +5,7 @@
         <p><%= f.hidden_field :image, value: 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'] %></p>
         <div class="movie-info">
             <div class="movie-header">
-                <h2><%= @movie['title']%></h2>
+                <h1><%= @movie['title']%></h1>
                 <hr>
                 <p><%= f.hidden_field :title, :size => 140, value: @movie['title']%></p>
             </div>
