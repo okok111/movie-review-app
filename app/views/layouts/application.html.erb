@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mmm</title>
+    <title>movie Memo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1><%= link_to "Movie Memo", search_movies_path %></h1>
+      <nav class="header-nav">
+        <ul class="header-list">
+          <li><%= link_to "映画検索", search_movies_path %></li>
+          <li><%= link_to "AIのオススメ", recommend_movies_path %></li>
+          <li><%= link_to "映画メモ", posts_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><%#= link_to "My page", user_path(current_user.id) %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', new_user_session_path  %></li>
+          <% end %>
+          </ul>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    
   </body>
 </html>

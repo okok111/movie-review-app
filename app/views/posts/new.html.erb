@@ -1,0 +1,27 @@
+<%= form_for @post do |f| %>
+    <div class="movie-detail">
+        <div class="movie-info-with-image">
+        <p><%= image_tag 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'] %></p>
+        <p><%= f.hidden_field :image, value: 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'] %></p>
+        <div class="movie-info">
+            <div class="movie-header">
+                <h2><%= @movie['title']%></h2>
+                <hr>
+                <p><%= f.hidden_field :title, :size => 140, value: @movie['title']%></p>
+            </div>
+            <div class="movie-overview">
+                <p><%= @movie['overview']%></p>
+                <p><%= f.hidden_field :overview, :size => 140, value: @movie['overview'] %></p>
+            </div>
+            <hr>
+            <br>
+            <div class="movie-comment">
+                <%= f.label :commnet,"メモ" %>
+                <p><%= f.text_area :comment, :size => "40x5"%></p>
+            </div>
+        </div>
+    </div>
+    <%= f.submit "メモっとく" ,class:"postbtn" %>
+    </div>
+<% end %>
+<%= link_to "post一覧に戻る", posts_path %>

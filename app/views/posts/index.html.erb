@@ -1,0 +1,12 @@
+<div class="movies-container">
+    <% @posts.each do |t| %>
+        <div class="movie-data">
+            <p class= "movie-title"><%= t.title %></p>
+            <% if t.image.present? %>
+                <%= link_to post_path(t.id) do %>
+                    <p><%= image_tag t.image ,class: "card-img"%></p>
+                <% end %>
+            <% end %>
+        </div>
+    <% end %>
+</div>

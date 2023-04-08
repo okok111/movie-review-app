@@ -1,0 +1,27 @@
+
+
+<div class="movie-detail">
+  <div class="movie-info-with-image">
+    <% if @post.image.present? %>
+        <p><%= image_tag @post.image %></p>
+    <% end %>
+    <div class="movie-info">
+      <div class="movie-header">
+        <h2><%= @post.title %></h2>
+      </div>
+      <hr>
+      <div class="movie-overview">
+        <p><%= @post.overview %></p>
+      </div>
+      <hr>
+      <br>
+      <div class="movie-comment">
+        <p>メモ：<%= @post.comment %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%  if user_signed_in? && current_user.id == @post.user_id %>
+    <%= link_to "削除する", post_path(@post.id), method: :delete ,class:"delbtn" %>
+<% end %>

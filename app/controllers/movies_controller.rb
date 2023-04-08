@@ -46,15 +46,16 @@ class MoviesController < ApplicationController
   end
 
   def recommend
-    @question = params[:query]
-
-    client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
-    response = client.chat(
-      parameters: {
+    if params[:query].present?
+      client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
+      response = client.chat(
+        parameters: {
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: "次の単語に該当する映画を５つ紹介してください。#{@question}" }],
-      })
-
-    @answer = response.dig("choices", 0, "message", "content")
+          messages: [{ role: "user", content: "次の単語に該当する映画のタイトル、公開年、主演の俳優を５つ紹介してください。また各作品情報の最後に '\n'を入れて下さい。 #{params[:query]}" }],
+        })
+  
+      @answer = response.dig("choices", 0, "message", "content")
+    end
   end
+  
 end

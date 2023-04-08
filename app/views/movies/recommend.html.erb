@@ -1,11 +1,19 @@
-<div class="question">
-  <%= form_with(url: recommend_movies_path, method: :get) do |form| %>
-    <%= form.text_field :query, size: 50 %>
-    <%= form.submit "質問する" %>
-  <% end %>
+<div class="recommend-container">
+  <div class="question">
+    <%= form_with(url: recommend_movies_path, method: :get) do |form| %>
+      <%= form.text_field :query, size: 50, placeholder: "知りたい映画のテーマ、キーワード" %>
+      <%= form.submit "質問する", class: "postbtn" %>
+    <% end %>
+  </div>
+<hr>
+  <div class="answer">
+    <% if @answer %>
+      <%= h(@answer).gsub(/\n|\r|\r\n/, "<br>").html_safe %>
+    <% else %>
+      <p>質問してね！！！</p>
+      <p>※返答に30秒程かかります！気長にお待ちください！</p>
+    <% end %>
+  </div>
 </div>
-
-<div class="answer">
-  <%= @answer %>
-</div>
-
+<br>
+<hr>
