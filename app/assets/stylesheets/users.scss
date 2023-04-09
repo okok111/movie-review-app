@@ -38,6 +38,9 @@ h2{
   
   .actions {
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     input[type='submit'] {
       background-color: #4CAF50;
       color: #fff;
@@ -58,9 +61,9 @@ h2{
       color: #fff;
       text-decoration: none;
       width: 80px;
-      height: 45px;
-      padding: 5px 15px ;
+      height: 40px; 
       border: none;
+      line-height: 40px;
       border-radius: 5px;
       cursor: pointer;
       &:hover {
@@ -68,3 +71,16 @@ h2{
       }
     }
   }
+  .google-img{
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  /* スマホサイズ */
+@media screen and (max-width: 600px) {
+  #new_user{
+    width: 70%;
+  }
+  
+}

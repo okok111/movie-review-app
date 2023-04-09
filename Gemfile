@@ -56,3 +56,5 @@ gem 'dotenv-rails'
 gem 'kaminari'
 gem "ruby-openai"
 gem "pg", "~> 1.4"
+gem 'omniauth', '1.9.1'
+gem 'omniauth-google-oauth2' 
