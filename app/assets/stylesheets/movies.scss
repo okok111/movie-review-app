@@ -58,11 +58,6 @@
     color: #fff;
 }
 
-.search{
-    display: flex;
-    justify-content: center;
-
-}
 // movies/show.html.erb
 
 /* 基本設定 */
@@ -182,8 +177,8 @@
     justify-content: center;
     align-items: center;
     list-style: none;
-    margin: 20px 0;
-    padding: 0;
+    margin: 20px 0 0;
+    padding:0 0 25px;
   }
   
   .pagination li {
@@ -211,7 +206,47 @@
     padding: 8px 12px;
     border-radius: 4px;
   }
-    
+/* 検索バー*/
+.search {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search input[type="search"] {
+  font-size: 16px;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #fff;
+  background: #222;
+  border: solid #fff 0.1px;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 300px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.search input[type="search"]::placeholder {
+  color: #888;
+}
+
+.search input[type="submit"] {
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Helvetica Neue', sans-serif;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search input[type="submit"]:hover {
+  background: #3e8e41;
+}
+
 /* スマホサイズ */
 @media screen and (max-width: 767px) {
     .movies-container {

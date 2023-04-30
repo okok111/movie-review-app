@@ -51,7 +51,9 @@ class MoviesController < ApplicationController
       response = client.chat(
         parameters: {
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: "次の単語に該当する映画のタイトル、公開年、主演の俳優を５つ紹介してください。また各作品情報の最後に '\n'を入れて下さい。 #{params[:query]}" }],
+          messages: [{  role: "user", 
+                        content: "次のキーワードに該当する映画を`タイトル:公開年,監督`順番で10作品教えてください。また各作品情報の最後に '\n'を入れて下さい。keyword:#{params[:query]}"
+                    }],
         })
   
       @answer = response.dig("choices", 0, "message", "content")
