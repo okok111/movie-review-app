@@ -1,7 +1,6 @@
 <div class="search">
     <%= form_tag(root_path, method: :get) do %>
         <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title...' , :size => "40*40" %>
-        <%= submit_tag 'search' %>
     <% end %>
 </div>
 <%= paginate @movies %>
