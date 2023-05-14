@@ -208,6 +208,12 @@
     padding: 8px 12px;
     border-radius: 4px;
   }
+  .first{
+    display: none;
+  }
+  .last{
+    display: none;
+  }
 /* 検索バー*/
 .search {
   margin-top: 20px;
@@ -272,4 +278,5 @@
         width: 100%;
         padding: 10px;
     }
+    
 }
