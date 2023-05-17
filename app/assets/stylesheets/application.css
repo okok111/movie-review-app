@@ -32,6 +32,10 @@ header{
     align-items: center;
     color:white;
     z-index: 99;
+    transition: transform 0.3s 0.3s;
+}
+header.hidden {
+    transform: translateY(-80px);
 }
 header a{
     color:white;
