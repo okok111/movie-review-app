@@ -16,11 +16,10 @@
       <nav class="header-nav">
         <ul class="header-list">
           <li><%= link_to "映画検索", search_movies_path %></li>
-          <li><%= link_to "AIのオススメ", recommend_movies_path %></li>
+          <li><%= link_to "AIに聞く", recommend_movies_path %></li>
           <li><%= link_to "映画メモ", posts_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-            <li><%#= link_to "My page", user_path(current_user.id) %></li>
           <% else %>
             <li><%= link_to 'ログイン', new_user_session_path  %></li>
           <% end %>
