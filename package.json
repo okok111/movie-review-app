@@ -15,8 +15,8 @@
     "webpack-dev-server": "3"
   },
   "engines": {
-    "node": "16.13.1",
-    "yarn": "1.22.10"
+    "node": "16.x",
+    "yarn": "1.22.x"
   },
   "scripts": {
     "build": "webpack"
