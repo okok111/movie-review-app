@@ -19,7 +19,7 @@ RUN mkdir -p tmp/pids
 # 必要なパッケージのインストール
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y \
-    postgresql-client file vim curl gzip libsqlite3-0 \
+    postgresql-client file vim curl gzip libsqlite3-0 build-essential libpq-dev \
     && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Node.jsとYarnのインストール
