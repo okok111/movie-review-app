@@ -39,6 +39,11 @@ RUN gem update --system --no-document && \
 COPY package*json yarn.* ./
 RUN yarn install
 
+# Rails credentialsの設定
+# config/master.keyをコピー
+ARG RAILS_MASTER_KEY
+RUN echo "$RAILS_MASTER_KEY" > config/master.key
+
 # アプリケーションコードのコピー
 COPY . .
 
