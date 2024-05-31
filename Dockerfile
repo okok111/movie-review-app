@@ -42,8 +42,8 @@ RUN yarn install
 # アプリケーションコードのコピー
 COPY . .
 
-# config/master.keyをコピー
-COPY config/master.key /app/config/master.key
+# .envファイルのコピー
+COPY .env /app/.env
 
 # プリコンパイル
 RUN bundle exec rake assets:precompile
