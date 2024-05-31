@@ -8,8 +8,8 @@ LABEL koyeb_runtime="rails"
 # 環境変数の設定
 ARG RAILS_ENV=production
 ENV RAILS_ENV=${RAILS_ENV}
-ENV RAILS_SERVE_STATIC_FILES true
-ENV RAILS_LOG_TO_STDOUT true
+ENV RAILS_SERVE_STATIC_FILES=true
+ENV RAILS_LOG_TO_STDOUT=true
 
 # 作業ディレクトリの作成
 RUN mkdir /app
@@ -41,6 +41,9 @@ RUN yarn install
 
 # アプリケーションコードのコピー
 COPY . .
+
+# config/master.keyをコピー
+COPY config/master.key /app/config/master.key
 
 # プリコンパイル
 RUN bundle exec rake assets:precompile
