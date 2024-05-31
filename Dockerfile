@@ -42,9 +42,6 @@ RUN yarn install
 # アプリケーションコードのコピー
 COPY . .
 
-# .envファイルのコピー
-COPY .env /app/.env
-
 # プリコンパイル
 RUN bundle exec rake assets:precompile
 
