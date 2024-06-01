@@ -53,4 +53,4 @@ RUN echo "$RAILS_MASTER_KEY" > config/master.key
 #RUN bundle exec rake assets:precompile
 
 # デフォルトのコマンド
-CMD ["bin/rails", "server", "-b", "0.0.0.0", "-p", "8080"]
+CMD ["bin/rails", "server", "-b", "0.0.0.0", "-p", "3000"]
