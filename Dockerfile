@@ -8,8 +8,8 @@ LABEL koyeb_runtime="rails"
 # 環境変数の設定
 ARG RAILS_ENV=production
 ENV RAILS_ENV=${RAILS_ENV}
-ENV RAILS_SERVE_STATIC_FILES=true
-ENV RAILS_LOG_TO_STDOUT=true
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
 
 # 作業ディレクトリの作成
 RUN mkdir /app
@@ -39,12 +39,15 @@ RUN gem update --system --no-document && \
 COPY package*json yarn.* ./
 RUN yarn install
 
-# Rails credentialsの設定
-ARG RAILS_MASTER_KEY
-ENV RAILS_MASTER_KEY ${RAILS_MASTER_KEY}
-
 # アプリケーションコードのコピー
 COPY . .
+
+# master.keyを設定するためのディレクトリを作成
+RUN mkdir -p config
+
+# RAILS_MASTER_KEYを使用してmaster.keyを生成
+ARG RAILS_MASTER_KEY
+RUN echo "$RAILS_MASTER_KEY" > config/master.key
 
 # プリコンパイル
 RUN bundle exec rake assets:precompile
